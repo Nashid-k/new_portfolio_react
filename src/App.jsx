@@ -314,9 +314,15 @@ export default function Portfolio() {
               transition={{ duration: 0.8 }}
               className="mb-8"
             >
-              <div className="w-32 h-32 mx-auto bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-4xl font-bold mb-6 shadow-lg shadow-purple-500/30">
-                N
-              </div>
+    <div className="w-36 h-36 mx-auto rounded-full border-4 border-purple-500 shadow-xl overflow-hidden">
+  <img
+    src="/profile.jpg"
+    alt="Nashid Profile"
+    className="w-full h-full object-cover object-top transition-transform duration-300 hover:scale-105"
+  />
+</div>
+
+
             </motion.div>
             <motion.h1 
               className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent"
