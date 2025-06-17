@@ -184,7 +184,7 @@ const skills = [
   },
   { 
     category: "State Management", 
-    items: ["Zustand", "Context API", "Session Storage"] 
+    items: ["Redux", "Zustand", "Context API", "Session Storage"] 
   },
   { 
     category: "Core Strengths",
