@@ -1,46 +1,43 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
-  Linkedin, Github, MessageCircle, ExternalLink, 
+  Linkedin, Github, ExternalLink, 
   Code, Rocket, Lightbulb, Menu, X,
-  ShoppingCart, Cloud, Check, Users, Lock,
-  Database, Type, Layers, CloudRain, ListChecks,
+  ShoppingCart, Cloud, Database, Type, Layers, CloudRain, ListChecks,
   User, Thermometer, HeartPulse
 } from "lucide-react";
 
-const ParticleBackground = () => {
-  return (
-    <div className="fixed inset-0 overflow-hidden opacity-20 z-0">
-      {[...Array(30)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute bg-purple-500 rounded-full"
-          style={{
-            width: Math.random() * 10 + 5,
-            height: Math.random() * 10 + 5,
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-          }}
-          animate={{
-            y: [0, (Math.random() - 0.5) * 100],
-            x: [0, (Math.random() - 0.5) * 50],
-            opacity: [0.5, 1, 0.5],
-          }}
-          transition={{
-            duration: Math.random() * 10 + 10,
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
-        />
-      ))}
-    </div>
-  );
-};
+const ParticleBackground = () => (
+  <div className="fixed inset-0 overflow-hidden opacity-20 z-0" aria-hidden="true">
+    {[...Array(30)].map((_, i) => (
+      <motion.div
+        key={i}
+        className="absolute bg-purple-500 rounded-full"
+        style={{
+          width: Math.random() * 10 + 5,
+          height: Math.random() * 10 + 5,
+          left: `${Math.random() * 100}%`,
+          top: `${Math.random() * 100}%`,
+        }}
+        animate={{
+          y: [0, (Math.random() - 0.5) * 100],
+          x: [0, (Math.random() - 0.5) * 50],
+          opacity: [0.5, 1, 0.5],
+        }}
+        transition={{
+          duration: Math.random() * 10 + 10,
+          repeat: Infinity,
+          repeatType: "reverse",
+        }}
+      />
+    ))}
+  </div>
+);
 
 const projects = [
   {
     title: "Fashion E-commerce (Nashifa)",
-    description: "Full-featured shopping platform with user authentication, product management, cart system, and admin dashboard.",
+    description: "Built a full-featured shopping platform with user authentication, product management, cart, and admin dashboard. Used Node.js, Express, MongoDB, EJS, and AWS.",
     tech: ["Node.js", "Express", "MongoDB", "EJS", "AWS"],
     icon: <ShoppingCart className="text-purple-400" size={28} />,
     links: [
@@ -49,7 +46,7 @@ const projects = [
   },
   {
     title: "OLX Clone",
-    description: "Marketplace clone with product listings, search functionality, and user interactions.",
+    description: "Developed a marketplace clone with product listings, search, and user interactions using React, Tailwind CSS, and Firebase.",
     tech: ["React", "Tailwind CSS", "Firebase"],
     icon: <Layers className="text-blue-400" size={28} />,
     links: [
@@ -78,7 +75,7 @@ const projects = [
   },
   {
     title: "Weather Dashboard",
-    description: "Real-time weather application with dynamic data visualization using OpenWeather API.",
+    description: "Real-time weather app with dynamic data visualization using React, OpenWeather API, and Geolocation.",
     tech: ["React", "OpenWeather API", "Geolocation"],
     icon: <Cloud className="text-cyan-400" size={28} />,
     links: [
@@ -87,7 +84,7 @@ const projects = [
   },
   {
     title: "TypeScript CRUD App",
-    description: "Clean implementation of CRUD operations with TypeScript for type-safe development.",
+    description: "Clean implementation of CRUD operations with React and TypeScript for type-safe development.",
     tech: ["React", "TypeScript", "Tailwind"],
     icon: <Type className="text-blue-500" size={28} />,
     links: [
@@ -100,14 +97,14 @@ const journey = [
   {
     year: "The Foundation",
     title: "Life Before Code",
-    detail: "My journey began in the physical world - managing operations in my hometown, then working as a millwright fitter in Jamshedpur when circumstances demanded. Though I enjoyed gaming, technology remained just a hobby until allergies forced me away from fieldwork. After surgery and months of bed rest, I returned as an accountant, unaware my life was about to change forever.",
+    detail: "Worked in operations and accounting before transitioning to tech after a health setback. Developed strong problem-solving and resilience skills.",
     icon: <User className="text-amber-400" />,
     color: "from-amber-500/20 to-orange-500/20"
   },
   {
     year: "The Awakening",
-    title: "The Spark That Changed Everything",
-    detail: "A conversation with my best friend introduced me to programming. That YouTube video about computer science revealed a new world - where my problem-solving skills could build digital solutions. Coming from manual labor, the idea that I could create from anywhere, even during recovery, ignited a fire in me.",
+    title: "Discovering Programming",
+    detail: "Inspired by a friend, began learning programming through online resources, quickly building foundational web projects.",
     icon: <Lightbulb className="text-yellow-400" />,
     color: "from-yellow-500/20 to-green-500/20",
     links: [
@@ -117,18 +114,19 @@ const journey = [
   {
     year: "First Steps",
     title: "Learning to Code",
-    detail: "Started with tutorials and built my first static webpage - an old Facebook landing page clone. Then came my first real project: Kiwi Ice Cream clone, which took 2 days but wasn't responsive. I was learning to crawl before I could walk, but every line of code felt like magic.",
+    detail: "Started with tutorials and built my first static webpages, progressing to responsive layouts.",
     icon: <Code className="text-blue-400" />,
     color: "from-blue-500/20 to-cyan-500/20",
     links: [
-      { text: "Kiwi Clone", url: "https://nashid-k.github.io/kiwi/" },
-      { text: "Huawei Clone", url: "https://nashid-k.github.io/huawei/" }
+      { text: "Kiwi Clone (Non-responsive)", url: "https://nashid-k.github.io/kiwi/" },
+      { text: "Huawei Clone (Non-responsive)", url: "https://nashid-k.github.io/huawei/" },
+      { text: "Appy Fizz (First Responsive)", url: "https://nashid-k.github.io/APPY-FIZZ-RESPONSIVE/" }
     ]
   },
   {
     year: "Deep Dive",
     title: "Full Stack Mastery",
-    detail: "Dove deep into the MERN ecosystem - mastering JavaScript fundamentals, then Node.js, Express, and MongoDB. Built a simple Login System while learning authentication, then challenged myself with a complete User Management System to practice CRUD operations.",
+    detail: "Mastered the MERN stack, built authentication and CRUD systems to solidify backend and frontend skills.",
     icon: <Code className="text-purple-400" />,
     color: "from-purple-500/20 to-pink-500/20",
     links: [
@@ -139,7 +137,7 @@ const journey = [
   {
     year: "Reality Check",
     title: "The Real World Challenge",
-    detail: "Started applying for jobs, only to face the harsh reality - basic projects weren't enough. This wake-up call led me to build Nashifa, my first complete e-commerce platform. Countless errors, sleepless nights, but invaluable learning - this project transformed me from a beginner to a real developer.",
+    detail: "Built Nashifa, my first complete e-commerce platform, after realizing the need for advanced projects to stand out.",
     icon: <Rocket className="text-orange-400" />,
     color: "from-orange-500/20 to-red-500/20",
     links: [
@@ -149,15 +147,14 @@ const journey = [
   {
     year: "The Trial",
     title: "Bells Palsy: The Ultimate Test",
-    detail: "Just as I was mastering DSA, life struck again - Bells Palsy left me unable to even open my laptop for 8 months. When I returned, I had forgotten everything. But like a phoenix, I rose stronger. This time, the grind was different - more focused, more determined. I rebuilt my knowledge from scratch, proving my resilience beyond any code.",
+    detail: "Faced a major health setback but returned stronger, rebuilding my knowledge and skills from scratch.",
     icon: <HeartPulse className="text-red-400" />,
-    color: "from-red-500/20 to-purple-500/20",
-    cinematic: true
+    color: "from-red-500/20 to-purple-500/20"
   },
   {
     year: "The Rebirth",
     title: "Stronger Than Before",
-    detail: "The comeback was brutal but transformative. Relearning everything from JavaScript fundamentals to DSA concepts, I developed an unshakable perseverance. Where others might have quit, I found my superpower - the ability to rebuild from zero. This period forged the developer I am today.",
+    detail: "Relearned everything from JavaScript to DSA, developing unshakable perseverance and adaptability.",
     icon: <Thermometer className="text-purple-400" />,
     color: "from-purple-500/20 to-blue-500/20",
     links: [
@@ -167,7 +164,7 @@ const journey = [
   {
     year: "Skill Expansion",
     title: "DSA & Advanced Tech",
-    detail: "Recognizing the importance of Data Structures & Algorithms for career growth, I dedicated myself to mastering DSA concepts. Simultaneously expanded my tech stack with PostgreSQL, TypeScript, and advanced React patterns through meaningful projects.",
+    detail: "Mastered DSA and expanded my stack with PostgreSQL, TypeScript, and advanced React patterns.",
     icon: <Database className="text-indigo-400" />,
     color: "from-indigo-500/20 to-blue-500/20",
     links: [
@@ -202,8 +199,7 @@ const skills = [
 export default function Portfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
-  const [isWhatsAppOpen, setIsWhatsAppOpen] = useState(false);
-  const [message, setMessage] = useState("Hi Nashid, I saw your portfolio and would like to connect about...");
+  const [message] = useState("Hi Nashid, I saw your portfolio and would like to connect about...");
 
   const handleWhatsAppClick = () => {
     const encodedMessage = encodeURIComponent(message);
@@ -212,7 +208,6 @@ export default function Portfolio() {
 
   useEffect(() => {
     document.title = "Nashid | Full Stack Developer";
-    
     const handleScroll = () => {
       const sections = ['home', 'about', 'journey', 'projects', 'skills', 'contact'];
       for (const section of sections) {
@@ -226,7 +221,6 @@ export default function Portfolio() {
         }
       }
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -234,10 +228,9 @@ export default function Portfolio() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 text-gray-100">
       <ParticleBackground />
-      <div className="fixed inset-0 overflow-hidden opacity-10">
+      <div className="fixed inset-0 overflow-hidden opacity-10" aria-hidden="true">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==')]"></div>
       </div>
-
       <nav className="fixed z-50 w-full bg-gray-900/80 backdrop-blur-md border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <motion.a 
@@ -249,7 +242,6 @@ export default function Portfolio() {
           >
             Nashid
           </motion.a>
-
           <div className="hidden md:flex gap-8">
             {['about', 'journey', 'projects', 'skills', 'contact'].map((item) => (
               <motion.a
@@ -262,17 +254,24 @@ export default function Portfolio() {
                 {item}
               </motion.a>
             ))}
+            <a
+              href="/Nashid_Resume.pdf"
+              download
+              className="ml-4 px-4 py-2 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold shadow hover:from-pink-500 hover:to-purple-500 transition"
+              aria-label="Download Resume"
+            >
+              Download Resume
+            </a>
           </div>
-
           <button 
             className="md:hidden p-2 rounded-lg hover:bg-gray-800 transition"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
           >
             {isMenuOpen ? <X /> : <Menu />}
           </button>
         </div>
       </nav>
-
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div 
@@ -293,12 +292,20 @@ export default function Portfolio() {
                   {item}
                 </motion.a>
               ))}
+              <a
+                href="/Nashid_Resume.pdf"
+                download
+                className="py-3 px-4 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold shadow hover:from-pink-500 hover:to-purple-500 transition"
+                aria-label="Download Resume"
+              >
+                Download Resume
+              </a>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-
       <main className="relative z-10 pt-16">
+        {/* Home Section */}
         <section id="home" className="min-h-screen flex items-center justify-center px-6 py-20">
           <div className="max-w-6xl mx-auto text-center">
             <motion.div
@@ -311,7 +318,6 @@ export default function Portfolio() {
                 N
               </div>
             </motion.div>
-            
             <motion.h1 
               className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent"
               initial={{ opacity: 0, y: 20 }}
@@ -320,18 +326,14 @@ export default function Portfolio() {
             >
               Nashid
             </motion.h1>
-            
             <motion.p 
               className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
             >
-              Full Stack Developer crafting digital experiences with 
-              <span className="text-purple-400 font-semibold"> MERN Stack</span> &
-              <span className="text-pink-400 font-semibold"> Modern Technologies</span>
+              Full Stack Developer with a proven track record of building robust web applications using the MERN stack. Known for resilience, adaptability, and a passion for continuous learning. Seeking opportunities to contribute to dynamic development teams.
             </motion.p>
-            
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -348,7 +350,7 @@ export default function Portfolio() {
             </motion.div>
           </div>
         </section>
-
+        {/* About Section */}
         <section id="about" className="py-20 px-6">
           <div className="max-w-4xl mx-auto">
             <motion.h2
@@ -360,337 +362,161 @@ export default function Portfolio() {
             >
               About Me
             </motion.h2>
-            
-            <motion.div 
-              className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 shadow-lg"
-              whileHover={{ y: -5 }}
-            >
-              <p className="text-gray-300 text-lg leading-relaxed">
-                I'm a passionate self-taught full stack developer who transforms ideas into powerful web applications. 
-                With expertise in the MERN stack and PostgreSQL, I create scalable solutions that blend beautiful 
-                interfaces with robust backends. When I'm not coding, you'll find me diving deep into Data Structures 
-                & Algorithms to build more efficient solutions.
-              </p>
-            </motion.div>
+            <p className="mb-4 text-lg text-gray-300 text-center">
+              I’m a self-taught developer who transitioned from operations and accounting to full stack web development. My journey is defined by resilience, adaptability, and a drive to solve real-world problems with technology.
+            </p>
           </div>
         </section>
-
-        <section id="journey" className="py-20 px-6 bg-gray-900/50">
-          <div className="max-w-6xl mx-auto">
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
-              className="text-3xl sm:text-4xl font-bold mb-12 text-center bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
-            >
+        {/* Coding Journey */}
+        <section id="journey" className="py-20 px-6 bg-gradient-to-br from-gray-900/90 to-gray-950/90">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
               My Coding Journey
-            </motion.h2>
-            
-            <div className="relative">
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-purple-500 to-pink-500 rounded-full opacity-30 hidden md:block" />
-              
-              {journey.map((phase, index) => (
+            </h2>
+            <div className="space-y-8">
+              {journey.map((step, idx) => (
                 <motion.div
-                  key={index}
+                  key={idx}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className={`relative mb-12 md:mb-16 flex flex-col md:flex-row ${index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'}`}
+                  transition={{ duration: 0.5, delay: idx * 0.05 }}
+                  className={`rounded-xl p-6 shadow-lg bg-gradient-to-r ${step.color} flex items-start gap-5`}
                 >
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full z-10 border-4 border-gray-900 hidden md:block" />
-                  
-                  {phase.cinematic && (
-                    <motion.div
-                      className="absolute inset-0 bg-black/50 z-0 rounded-2xl"
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 0.3 }}
-                      transition={{ duration: 1 }}
-                    />
-                  )}
-                  
-                  <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
-                    <motion.div 
-                      className={`bg-gradient-to-br ${phase.color} backdrop-blur-sm rounded-2xl p-6 border border-gray-700 hover:border-gray-600 transition-all duration-300 shadow-lg`}
-                      whileHover={{ scale: phase.cinematic ? 1 : 1.02 }}
-                      initial={phase.cinematic ? { scale: 0.9, opacity: 0 } : {}}
-                      whileInView={phase.cinematic ? { 
-                        scale: 1,
-                        opacity: 1,
-                        transition: { type: "spring", bounce: 0.4 }
-                      } : {}}
-                    >
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="text-2xl">{phase.icon}</div>
-                        <div>
-                          <span className="text-sm font-semibold text-purple-300">{phase.year}</span>
-                          <h3 className="text-xl font-bold text-white">{phase.title}</h3>
-                        </div>
+                  <div className="mt-1">{step.icon}</div>
+                  <div>
+                    <div className="font-semibold text-lg">{step.title}</div>
+                    <div className="text-sm text-gray-300">{step.detail}</div>
+                    {step.links && (
+                      <div className="flex flex-wrap gap-3 mt-2">
+                        {step.links.map((l, i) => (
+                          <a
+                            key={i}
+                            href={l.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-purple-400 hover:underline text-xs"
+                          >
+                            <ExternalLink size={14} /> {l.text}
+                          </a>
+                        ))}
                       </div>
-                      <p className="text-gray-300 leading-relaxed mb-4">{phase.detail}</p>
-                      {phase.links && (
-                        <div className="flex gap-3 flex-wrap">
-                          {phase.links.map((link, idx) => (
-                            <motion.a
-                              key={idx}
-                              href={link.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-2 text-purple-300 hover:text-white text-sm transition-colors"
-                              whileHover={{ scale: 1.05 }}
-                              whileTap={{ scale: 0.95 }}
-                            >
-                              <ExternalLink className="text-xs" />
-                              {link.text || (link.type === "github" ? "Code" : "Live")}
-                            </motion.a>
-                          ))}
-                        </div>
-                      )}
-                    </motion.div>
+                    )}
                   </div>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
-
+        {/* Projects */}
         <section id="projects" className="py-20 px-6">
-          <div className="max-w-6xl mx-auto">
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
-              className="text-3xl sm:text-4xl font-bold mb-12 text-center bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
-            >
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
               Featured Projects
-            </motion.h2>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {projects.map((project, index) => (
+            </h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              {projects.map((proj, idx) => (
                 <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 50 }}
+                  key={idx}
+                  initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  whileHover={{ y: -10 }}
-                  className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-purple-500/50 transition-all duration-300 shadow-lg"
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.4, delay: idx * 0.07 }}
+                  className="rounded-xl bg-gray-900/80 p-6 shadow-lg border border-gray-800 flex gap-5"
                 >
-                  <div className="mb-4">
-                    {project.icon}
-                  </div>
-                  <h3 className="text-xl font-semibold mb-3 text-white">{project.title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed mb-4">{project.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech, idx) => (
-                      <motion.span
-                        key={idx}
-                        className="px-3 py-1 text-xs font-medium bg-purple-500/20 text-purple-300 rounded-full border border-purple-500/30"
-                        whileHover={{ scale: 1.1 }}
-                      >
-                        {tech}
-                      </motion.span>
-                    ))}
-                  </div>
-                  {project.links && (
-                    <div className="flex gap-3">
-                      {project.links.map((link, idx) => (
-                        <motion.a
-                          key={idx}
-                          href={link.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-sm px-4 py-2 rounded-lg bg-gray-700 hover:bg-gray-600 transition flex items-center gap-2"
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          {link.type === "github" ? (
-                            <>
-                              <Github size={16} /> Code
-                            </>
-                          ) : (
-                            <>
-                              <ExternalLink size={16} /> Live
-                            </>
-                          )}
-                        </motion.a>
+                  <div className="mt-1">{proj.icon}</div>
+                  <div>
+                    <div className="font-semibold text-lg mb-1">{proj.title}</div>
+                    <div className="text-gray-300 text-sm mb-2">{proj.description}</div>
+                    <div className="flex flex-wrap gap-2 mb-2">
+                      {proj.tech.map((t, i) => (
+                        <span key={i} className="text-xs bg-gray-800 text-purple-300 px-2 py-0.5 rounded">{t}</span>
                       ))}
                     </div>
-                  )}
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="skills" className="py-20 px-6 bg-gray-900/50">
-          <div className="max-w-5xl mx-auto">
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
-              className="text-3xl sm:text-4xl font-bold mb-12 text-center bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
-            >
-              Technical Skills
-            </motion.h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {skills.map((skillGroup, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-purple-500/50 transition-all duration-300 shadow-lg"
-                >
-                  <h3 className="text-xl font-semibold mb-4 text-purple-300">{skillGroup.category}</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {skillGroup.items.map((skill, idx) => (
-                      <motion.span
-                        key={idx}
-                        className="px-3 py-1 text-sm bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-white rounded-lg border border-white/10"
-                        whileHover={{ scale: 1.05 }}
-                      >
-                        {skill}
-                      </motion.span>
-                    ))}
+                    <div className="flex gap-3">
+                      {proj.links.map((l, i) => (
+                        <a
+                          key={i}
+                          href={l.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-pink-400 hover:underline text-xs"
+                        >
+                          {l.type === "github" ? <Github size={14} /> : <ExternalLink size={14} />}
+                          {l.type === "github" ? "Code" : "Live"}
+                        </a>
+                      ))}
+                    </div>
                   </div>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
-
+        {/* Skills */}
+        <section id="skills" className="py-20 px-6 bg-gradient-to-br from-gray-900/90 to-gray-950/90">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              Technical Skills
+            </h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              {skills.map((group, idx) => (
+                <div key={idx} className="rounded-xl bg-gray-900/80 p-6 shadow border border-gray-800">
+                  <div className="font-semibold text-lg mb-2">{group.category}</div>
+                  <ul className="flex flex-wrap gap-2">
+                    {group.items.map((item, i) => (
+                      <li key={i} className="text-xs bg-gray-800 text-purple-200 px-2 py-0.5 rounded">{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+        {/* Contact */}
         <section id="contact" className="py-20 px-6">
-          <div className="max-w-2xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8 }}
-            >
-              <motion.h2 
-                className="text-3xl sm:text-4xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
-                whileInView={{ scale: 1.05 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              Contact
+            </h2>
+            <p className="mb-4">
+              Interested in working together? Let's connect!
+            </p>
+            <div className="flex flex-col gap-4 items-center">
+              <a
+                href="mailto:nashidk1999@gmail.com"
+                className="px-6 py-3 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold shadow hover:from-pink-500 hover:to-purple-500 transition"
+                aria-label="Email Me"
               >
-                Let's Build Something Amazing
-              </motion.h2>
-              
-              <motion.p 
-                className="text-gray-300 mb-8 leading-relaxed"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2 }}
+                Email Me
+              </a>
+              <a
+                href="/Nashid_Resume.pdf"
+                download
+                className="px-6 py-3 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold shadow hover:from-pink-500 hover:to-purple-500 transition"
+                aria-label="Download Resume"
               >
-                Ready to turn your ideas into reality? I'm always excited to work on new projects and collaborate with fellow developers.
-              </motion.p>
-              
-              <motion.div 
-                className="flex justify-center gap-6 mb-8"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4 }}
+                Download Resume
+              </a>
+              <button
+                onClick={handleWhatsAppClick}
+                className="px-6 py-3 rounded-lg bg-green-500 text-white font-semibold shadow hover:bg-green-600 transition"
+                aria-label="Message on WhatsApp"
               >
-                <motion.button
-                  onClick={() => setIsWhatsAppOpen(true)}
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-14 h-14 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center text-white text-xl hover:shadow-lg hover:shadow-green-500/25 transition-all duration-300"
-                >
-                  <MessageCircle />
-                </motion.button>
-                
-                <motion.a
-                  href="https://github.com/Nashid-k"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1, rotate: -5 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-14 h-14 bg-gradient-to-r from-gray-700 to-gray-900 rounded-full flex items-center justify-center text-white text-xl hover:shadow-lg hover:shadow-gray-500/25 transition-all duration-300"
-                >
-                  <Github />
-                </motion.a>
-                
-                <motion.a
-                  href="https://www.linkedin.com/in/nashid-k-080909273/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-14 h-14 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full flex items-center justify-center text-white text-xl hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300"
-                >
-                  <Linkedin />
-                </motion.a>
-              </motion.div>
-              
-              <motion.p 
-                className="text-sm text-gray-500"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.6 }}
-              >
-                &copy; {new Date().getFullYear()} Nashid. Crafted with passion and lots of coffee ☕
-              </motion.p>
-            </motion.div>
+                Message on WhatsApp
+              </button>
+              <div className="flex gap-4 justify-center mt-4">
+                <a href="https://github.com/Nashid-k" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                  <Github className="text-gray-300 hover:text-white" size={28} />
+                </a>
+                <a href="https://linkedin.com/in/nashid-k" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                  <Linkedin className="text-gray-300 hover:text-white" size={28} />
+                </a>
+              </div>
+            </div>
           </div>
         </section>
       </main>
-
-      <AnimatePresence>
-        {isWhatsAppOpen && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
-            onClick={() => setIsWhatsAppOpen(false)}
-          >
-            <motion.div 
-              initial={{ y: 50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: 50, opacity: 0 }}
-              className="bg-gray-800 rounded-xl p-6 w-full max-w-md"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <h3 className="text-xl font-bold mb-4">Message me on WhatsApp</h3>
-              <div className="space-y-4">
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-1">Your Message</label>
-                  <textarea
-                    id="message"
-                    rows={4}
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    className="w-full bg-gray-700 rounded-lg px-4 py-2 text-white"
-                  />
-                </div>
-              </div>
-              <div className="mt-6 flex justify-end gap-3">
-                <button
-                  type="button"
-                  onClick={() => setIsWhatsAppOpen(false)}
-                  className="px-4 py-2 rounded-lg bg-gray-700 hover:bg-gray-600 transition"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="button"
-                  onClick={handleWhatsAppClick}
-                  className="px-4 py-2 rounded-lg bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 transition"
-                >
-                  Open WhatsApp
-                </button>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </div>
   );
 }
