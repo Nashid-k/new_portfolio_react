@@ -36,7 +36,7 @@ const ParticleBackground = () => (
 
 const projects = [
   {
-    title: "Fashion E-commerce (Nashifa)",
+    title: "Fashion E-commerce ",
     description: "Built a full-featured shopping platform with user authentication, product management, cart, and admin dashboard. Used Node.js, Express, MongoDB, EJS, and AWS.",
     tech: ["Node.js", "Express", "MongoDB", "EJS", "AWS"],
     icon: <ShoppingCart className="text-purple-400" size={28} />,
@@ -137,11 +137,11 @@ const journey = [
   {
     year: "Reality Check",
     title: "The Real World Challenge",
-    detail: "Built Nashifa, my first complete e-commerce platform, after realizing the need for advanced projects to stand out.",
+    detail: "Built my first complete e-commerce platform, after realizing the need for advanced projects to stand out.",
     icon: <Rocket className="text-orange-400" />,
     color: "from-orange-500/20 to-red-500/20",
     links: [
-      { text: "Nashifa E-commerce", url: "https://github.com/Nashid-k/First_Project_Ecommerce" }
+      { text: "E-commerce", url: "https://github.com/Nashid-k/First_Project_Ecommerce" }
     ]
   },
   {
