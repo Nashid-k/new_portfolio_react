@@ -4,7 +4,7 @@ import {
   Linkedin, Github, ExternalLink, 
   Code, Rocket, Lightbulb, Menu, X,
   ShoppingCart, Cloud, Database, Type, Layers, CloudRain, ListChecks,
-  User, Thermometer, HeartPulse
+  User, Thermometer, HeartPulse,Clock
 } from "lucide-react";
 
 const ParticleBackground = () => (
@@ -90,8 +90,38 @@ const projects = [
     links: [
       { type: "github", url: "https://github.com/Nashid-k/CRUD_App" }
     ]
+  },
+  {
+    title: "Calculator",
+    description: "A responsive calculator built using HTML, CSS, and JavaScript with a clean design and real-time input/output display.",
+    tech: ["HTML", "CSS", "JavaScript"],
+    icon: <Code className="text-yellow-400" size={28} />,
+    links: [
+      { type: "github", url: "https://github.com/Nashid-k/Calculator" },
+      { type: "live", url: "https://nashid-k.github.io/Calculator/" }
+    ]
+  },
+  {
+    title: "Digital Clock with Alarm",
+    description: "A stunning, feature-rich digital clock with real-time updates, animations, theme toggle, and an advanced alarm system. Built using HTML, CSS, and JavaScript.",
+    tech: ["HTML", "CSS", "JavaScript", "Web Audio API"],
+    icon: <Clock className="text-cyan-400" size={28} />, // you can import Clock from lucide-react or use another icon
+    links: [
+      { type: "github", url: "https://github.com/Nashid-k/Digital_Clock" },
+      { type: "live", url: "https://nashid-k.github.io/Digital_Clock/" }
+    ]
+  },
+  {
+    title: "Job List App (Full Stack)",
+    description: "A modern job listing application using React (Vite) for the frontend and Node.js + Express for the backend. Styled with Tailwind CSS.",
+    tech: ["React", "Node.js", "Express", "Tailwind CSS"],
+    icon: <ListChecks className="text-purple-400" size={28} />,
+    links: [
+      { type: "github", url: "https://github.com/Nashid-k/JobList_Application" }
+    ]
   }
 ];
+
 
 const journey = [
   {
